@@ -1,12 +1,12 @@
 -- Apaga o banco de dados se ele exisir
 -- Perigo! Só faça isso em tempo de desenvolvimemento.
 
-DROP DATABASE IF EXISTS flasKblogdb;
+DROP DATABASE IF EXISTS flasKblogdb; -- O banco de dados é apagado depois de criado.
 
 -- (RE) CRIA O BANCO DE BD
 -- PERIGO! SÓ FAÇA ISSO EM TEMPO DE DESENVOLVIMENTO.
 
-CREATE DATABASE flaskblogdb
+CREATE DATABASE flaskblogdb 
 
 		CHARACTER SET utf8mb4        -- USANDO TABELA DE CARACTERES UNIVERSAL EXTENDIDA.
 		COLLATE utf8mb4_general_ci;  -- BUSCAS TAMBÉM EM UTF8 E CASE INSENSITIVE.
@@ -28,18 +28,17 @@ CREATE DATABASE flaskblogdb
 						   emp_status ENUM('on' ,'off','del') DEFAULT 'on'
                            );
                          
-		CREATE TABLE article(
-							art_id Int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-							art_date Date,
-							art_autor INT NOT NULL,
-							art_title VARCHAR(127),
-							art_resume VARCHAR(255),
-                            art_thumbmail VARCHAR(255),
-							art_contect TEXT NOT NULL,
-							art_views INT NOT NULL DEFAULT 0,
-							art_status ENUM('on','off','del') DEFAULT 'on',
-							FOREIGN KEY (art_autor) REFERENCES staff(emp_id)
-                             );
+	CREATE TABLE article (
+	art_id INT PRIMARY KEY AUTO_INCREMENT,
+    art_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    art_author INT NOT NULL,
+    art_title VARCHAR(127) NOT NULL,
+    art_resume VARCHAR(255) NOT NULL,
+    art_thumbnail VARCHAR(255) NOT NULL,
+    art_content TEXT NOT NULL,
+    art_views INT NOT NULL DEFAULT 0,
+    art_status ENUM('on', 'off', 'del') DEFAULT 'on',
+    FOREIGN KEY (art_author) REFERENCES staff (emp_id));
                              
 	 CREATE TABLE contact(
 							id Int PRIMARY KEY AUTO_INCREMENT,
@@ -61,18 +60,3 @@ CREATE DATABASE flaskblogdb
                             com_status ENUM('on','off','del') DEFAULT 'on',
                             FOREIGN KEY(com_article) REFERENCES article(art_id)
 						);
-
-
--- POPULAR TABELAS
-
-INSERT INTO staff(
-                  emp_name,emp_email,emp_password,emp_image, emp_birth,emp_type,emp_description
-                  )values('Joca da Silva',
-                  'joca@silva.com',
-                  SHA1('senha123'), -- SHA1 CRIPTOGRAFIA A SENHA É UMA DAS FORMAS
-                  'https://randomuser.me/api/portraits/men/15.jpg',
-                  '2000-03-27',
-                  'author',
-                  'Programador,desenvolvedor,enrolador e devedor'
-                  );
-				
