@@ -1,0 +1,261 @@
+/***********************/
+/* CSS do tema do site */
+/***********************/
+
+/* Importa CSS externo */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Reset do CSS para padronizar entre navegadores */
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Elementos raiz */
+
+html,
+body,
+#wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonte padrão do site */
+
+html,
+body {
+    font-family: Roboto, Arial, sans-serif;
+    /* Cria a unidade `rem` → 1rem = 16px */
+    font-size: 16px;
+}
+
+/* Fundo das páginas */
+body {
+    background-color: rgb(227, 227, 227);
+    background-image: url('/static/img/bg01.jpg');
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Links */
+
+a {
+    color: steelblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orangered;
+}
+
+/* Campos de formulário */
+
+input,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Classes de uso geral */
+
+.center {
+    text-align: center;
+}
+
+.red {
+    color: red;
+}
+
+/*************/
+/* Cabeçalho */
+/*************/
+
+#wrap>header {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+}
+
+#wrap>header div {
+    display: flex;
+    align-items: center;
+}
+
+#wrap>header div h1 {
+    margin: 0;
+}
+
+/* Logotipo usando FontAwesome */
+
+#wrap>header div i {
+    color: white;
+    -webkit-text-stroke: 2px black;
+    margin: .25rem .5rem;
+}
+
+/* Caixa de busca */
+
+#wrap>header form {
+    background-color: black;
+    display: flex;
+    padding: 1rem;
+}
+
+#wrap>header form input,
+#wrap>header form button {
+    padding: .5rem;
+    border: none;
+}
+
+#wrap>header form input {
+    background-color: white;
+    flex-grow: 1;
+    border-radius: .3rem 0 0 .3rem;
+}
+
+#wrap>header form button {
+    border-radius: 0 .3rem .3rem 0;
+}
+
+/******************/
+/* Menu principal */
+/******************/
+
+#wrap>nav {
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dotted gray;
+}
+
+#wrap>nav a {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+#wrap>nav a i {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+#wrap>nav a:hover {
+    background-color: black;
+}
+
+/**********************/
+/* Conteúdo principal */
+/**********************/
+
+#wrap>main {
+    display: flex;
+    flex-direction: column;
+}
+
+#wrap>main>article,
+#wrap>main>aside {
+    padding: 0 1rem;
+}
+
+/* Article */
+
+#wrap>main>article {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Aside */
+
+#wrap>main>aside {
+    background-color: #eee;
+    border-top: 4px dotted rgb(128, 128, 128);
+}
+
+/**********/
+/* Rodapé */
+/**********/
+
+#wrap>footer {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+#wrap>footer a {
+    color: white;
+}
+
+#wrap>footer>a {
+    font-size: 2rem;
+    padding: .25rem;
+}
+
+#wrap>footer a:hover {
+    color: orange;
+}
+
+#wrap>footer>div {
+    font-size: .9rem;
+    text-align: center;
+    padding: .25rem;
+}
+
+#wrap>footer>div small {
+    display: block;
+    font-size: 70%;
+}
+
+/* Stick footer */
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#wrap>main,
+#wrap>main>article {
+    flex-grow: 1;
+}
+
+/*************************************/
+/* Media queries                     */
+/* Responsividade para telas maiores */
+/*************************************/
+
+@media screen and (min-width: 480px) {
+
+    /* Menu principal */
+
+    #wrap>nav {
+        justify-content: flex-end;
+    }
+
+    #wrap>nav a {
+        flex-direction: row;
+    }
+
+    #wrap>nav a:first-child {
+        margin-right: auto;
+    }
+
+    #wrap>nav a i {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        margin-right: .25rem;
+    }
+
+}
