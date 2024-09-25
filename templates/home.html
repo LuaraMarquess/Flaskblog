@@ -1,0 +1,35 @@
+{# Insere o template `layout.html` nesta página #}
+{% extends "layout.html" %}
+
+{# Bloco dentro de <article></article> #}
+
+{% block article %}
+
+<!-- Conteudo fake de teste → REMOVA-ME!!!! -->
+<h2>Título do Article</h2>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eum, dolor ad alias nesciunt consequuntur in error enim numquam sit sunt! Quia eius tempora provident tempore culpa cupiditate sunt dignissimos?</p>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem qui voluptatum hic repudiandae labore quod deleniti temporibus perferendis quisquam recusandae, eum alias natus, dolor at! Error saepe est cupiditate consectetur!</p>
+<img src="https://picsum.photos/200/300" alt="Imagem aleatória">
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi consequatur laboriosam reiciendis dolorem, exercitationem dolor natus hic quisquam itaque maxime doloribus. Adipisci debitis quod perferendis repudiandae similique quam voluptatum eveniet.</p>
+<h4>Links:</h4>
+<ul>
+    <li><a href="https://catabist.com.br">Site do Fessô</a></li>
+    <li><a href="https://github.com/Luferat">Github do fessô</a></li>
+</ul>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis a mollitia doloribus repudiandae incidunt ullam debitis, minima iure quia, recusandae odio magnam velit quos ad nam eaque. Ut, dolorem eveniet?</p>
+
+{% endblock%}
+
+
+
+
+
+{# Bloco dentro de <aside></aside> #}
+{% block aside %}
+
+<!-- Conteudo fake de teste → REMOVA-ME!!!! -->
+<h3>Título complementar</h3>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+
+{%endblock %}
