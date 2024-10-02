@@ -1,16 +1,17 @@
 {# Insere (herda) o template `layout.html` nesta página #}
 {% extends "layout.html" %}
 
-{# Bloco dentro de <article></article> de `layout.html` #}
+{# Peenche o bloco dentro de <article></article> de `layout.html` #}
 {% block article %}
 
 <h2>Artigos Recentes</h2>
 
 <div class="article-grid">
 
+    {# Lista os artigos mais recentes à partir do dict `page.articles` #}
     {% for article in page.articles %}
 
-    <div class="article-box" onclick="location.href = '/view/' + {{ article.art_id }}">
+    <div class="article-box" onclick="location.href = '/view/{{ article.art_id }}'">
         <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
         <div>
             <h4>{{ article.art_title }}</h4>
@@ -24,7 +25,7 @@
 
 {% endblock%}
 
-{# Bloco dentro de <aside></aside> de `layout.html` #}
+{# Peenche o bloco dentro de <aside></aside> de `layout.html` #}
 {% block aside %}
 
 <!-- Conteudo fake de teste → REMOVA-ME!!!! -->
