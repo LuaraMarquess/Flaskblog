@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/layout.css">
+    {# Verifica se solicitou a carga do CSS da página #}
+    {% if page.css %}
+    <link rel="stylesheet" href="/static/css/{{ page.css }}">
+    {% endif %}
+    <title>{{ page.title }}</title>
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <header>
+            <div>
+                <a href="/"><i class="fa-solid fa-camera-retro fa-fw fa-4x"></i></a>
+                <h1>FlaskBlog</h1>
+            </div>
+            <form action="search.html" method="get">
+                <input type="search" name="q" placeholder="Procurar">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
+            </form>
+        </header>
+
+        <nav>
+            <a href="/">
+                <i class="fa-solid fa-house fa-fw"></i>
+                <span>Início</span>
+            </a>
+            <a href="/contacts">
+                <i class="fa-solid fa-comments fa-fw"></i>
+                <span>Contatos</span>
+            </a>
+            <a href="/about">
+                <i class="fa-solid fa-circle-info fa-fw"></i>
+                <span>Sobre</span>
+            </a>
+        </nav>
+
+        <main>
+
+            <article>{% block article %}{% endblock%}</article>
+            
+            <aside>{% block aside %}{%endblock %}</aside>
+
+        </main>
+
+        <footer>
+            <a href="/">
+                <i class="fa-solid fa-house fa-fw"></i>
+            </a>
+            <div>
+                <i class="fa-regular fa-copyright fa-fw fa-flip-horizontal"></i> Copyleft 2024 Joca da Silva
+                <small>
+                    <a href="/contacts">Faça contato</a> &nbsp;|&nbsp;
+                    <a href="/policies">Políticas de privacidade</a>
+                </small>
+            </div>
+            <a href="#wrap">
+                <i class="fa-solid fa-circle-up fa-fw"></i>
+            </a>
+        </footer>
+
+    </div>
+
+    <script src="/static/js/layout.js"></script>
+
+    {# Verifica se solicitou a carga do JavaScript da página #}
+    {% if page.js %}
+    <script src="/static/js/{{ page.js }}"></script>
+    {% endif %}
+
+</body>
+
+</html>
