@@ -2,10 +2,54 @@
 
 {% block article %}
 
+{# Exibe o título do artigo #}
+<h2>{{ page.article.art_title }}</h2>
+
+<div class="author-date">
+    Por {{ page.article.sta_name }} em {{ page.article.art_datebr }}
+</div>
+
+{{ page.article.art_content | safe }}
 
 {% endblock%}
 
 {% block aside %}
 
+{# Perfil do autor do artigo #}
+
+<div class="aside-author">
+
+    <h3>{{ page.article.sta_name }}</h3>
+    <img src="{{ page.article.sta_image }}" alt="{{ page.article.sta_name }}">
+    <ul>
+        <li>{{ page.article.sta_age }} anos</li>
+        <li>{{ page.article.sta_typebr }}</li>
+    </ul>
+    {{ page.article.sta_description }}
+
+</div>
+
+{# Se tem mais artigos, lista aqui #}
+
+{% if page.articles != () %}
+
+&nbsp;
+
+<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos de {{ page.article.sta_name }}</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.articles %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
 
 {% endblock %}

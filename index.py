@@ -51,9 +51,41 @@ def home():  # Função executada quando '/' é acessado
 @app.route('/view/<artid>')
 def view(artid):
 
+    # Se o Id do artigo não é um número, exibe erro 404
+    if not artid.isdigit():
+        return page_not_found(404)
+
+    article = get_one(mysql, artid)
+
+    # Se o artigo não existe, exibe erro 404
+    if article == None:
+        return page_not_found(404)
+
+    # Debug → Comente-me!
+    # print('\n\n\n', article, '\n\n\n')
+
+    # Atualiza vsualizações do artigo
+    update_views(mysql, article['art_id'])
+
+    # Obtém mais artigos do autor
+    articles = get_by_author(mysql, article['sta_id'], article['art_id'])
+
+    # Traduz o type do author
+    match article['sta_type']:
+        case 'admin':
+            article['sta_typebr'] = 'Administrador'
+        case 'author':
+            article['sta_typebr'] = 'Autor'
+        case 'moderator':
+            article['sta_typebr'] = 'Moderador'
+        case _:
+            article['sta_typebr'] = 'Colaborador'
+
     toPage = {
         'title': '',
-        'css': 'view.css'
+        'css': 'view.css',
+        'article': article,  # Passa o artigo para a view.html
+        'articles': articles
     }
 
     return render_template('view.html', page=toPage)
@@ -70,6 +102,15 @@ def contacts():  # Função executada quando '/contacts' é acessado
 
     # Retorna uma mensagem simples
     return render_template('contacts.html', page=toPage)
+
+
+@app.errorhandler(404)  # Manipula o erro 404
+def page_not_found(e):
+    toPage = {
+        'title': 'Erro 404',
+        'css': '404.css'
+    }
+    return render_template('404.html', page=toPage), 404
 
 
 # Verifica se o script está sendo executado diretamente
