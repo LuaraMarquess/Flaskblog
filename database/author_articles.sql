@@ -1,3 +1,5 @@
+-- Obtém as artigos do author
+
 -- Seleciona os campos abaixo da tabela `article`
 SELECT art_id, art_title, art_thumbnail 
 FROM article

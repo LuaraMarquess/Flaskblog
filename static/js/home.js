@@ -1,1 +1,2 @@
-console.log('Home funciona')
+/* JavaScript de `home.html` */
+console.log('Home também funciona!')

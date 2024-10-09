@@ -10,7 +10,7 @@
     flex-direction: column;
     border: 1px dotted grey;
     margin-bottom: 1rem;
-    cursor: pointer; /*Efeito do mouse mao */
+    cursor: pointer;
     flex: 1 1 100%;
     margin: 0.5rem;
 }

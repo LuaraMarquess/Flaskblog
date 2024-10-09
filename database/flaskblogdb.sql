@@ -82,6 +82,7 @@ CREATE TABLE contact (
 -- Tabela "staff" --
 
 INSERT INTO staff (
+    sta_id,
 	sta_name,
     sta_email,
     sta_password,
@@ -90,6 +91,7 @@ INSERT INTO staff (
     sta_description, 
     sta_type
 ) VALUES (
+    '1',
 	'Joca da Silva',
     'jocasilva@email.com',
     SHA1('Senha123'),
@@ -98,6 +100,7 @@ INSERT INTO staff (
     'Programador, escultor, pescador e enrolador.',
     'admin'
 ), (
+    '2',
 	'Marineuza Siriliano',
     'marisiri@email.com',
     SHA1('Senha123'),
@@ -106,65 +109,24 @@ INSERT INTO staff (
     'Programadora, psicultora, dustribuidora e controladora.',
     'author'
 ), (
+    '3',
 	'Setembrino Trocatapas',
     'trocatapasset@email.com',
     SHA1('Senha123'),
     'https://randomuser.me/api/portraits/men/16.jpg',
     '1980-10-25',
     'Proramador, psicografador e destruidor de computador.',
-    'moderator'
+    'author'
 ), (
+    '4',
 	'Edicleuza Sarvastania',
     'edisarva@email.com',
     SHA1('Senha123'),
     'https://randomuser.me/api/portraits/women/25.jpg',
     '2001-06-18',
     'Programadora, organizadora e comentadora.',
-    'author'
-);
-
-INSERT INTO staff (
-	sta_name,
-    sta_email,
-    sta_password,
-    sta_image,
-    sta_birth,
-    sta_description,
-    sta_type
-) VALUES (
-	'Maria Oliveira',
-    'maria.oliveira@email.com',
-    SHA1('Senha456'),
-    'https://randomuser.me/api/portraits/women/44.jpg',
-    '1995-07-15',
-    'Desenvolvedora, pintora, ciclista e cozinheira.',
-    'author'
-), (
-	'Carlos Pereira',
-    'carlos.pereira@email.com',
-    SHA1('Senha789'),
-    'https://randomuser.me/api/portraits/men/45.jpg',
-    '1988-11-22',
-    'Analista de sistemas, músico, fotógrafo e viajante.',
     'moderator'
-), (
-	'Ana Costa',
-    'ana.costa@email.com',
-    SHA1('Senha321'),
-    'https://randomuser.me/api/portraits/women/46.jpg',
-    '1992-03-10',
-    'Engenheira de software, escritora, maratonista e voluntária.',
-    'author'
-), (
-	'Pedro Souza',
-    'pedro.souza@email.com',
-    SHA1('Senha654'),
-    'https://randomuser.me/api/portraits/men/47.jpg',
-    '1985-08-30',
-    'Designer gráfico, escultor, surfista e amante de gatos.',
-    'author'
 );
-
 
 -- Tabela "article" --
 INSERT INTO article (
@@ -196,10 +158,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'4',
+	'3',
     'Fazendo códigos de farinha',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/296',
     '
@@ -216,10 +176,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'4',
+	'2',
     'Como assar Python temperado com Flask',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/297',
     '
@@ -236,10 +194,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
 	'2',
     'Corrompendo o banco de dados',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/298',
     '
@@ -256,10 +212,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'5',
+	'3',
     'Comprando códigos pela Internet',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/299',
     '
@@ -276,10 +230,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
 	'3',
     'Chuvas atrapalham códigos do Twitter',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/300',
     '
@@ -296,10 +248,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
 	'2',
     'Bolachas recheadas com Django',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/301',
     '
@@ -316,10 +266,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'5',
+	'3',
     'Pedras que rolam na TI',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/302',
     '
@@ -336,10 +284,8 @@ INSERT INTO article (
     '
 ) ,(
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'3',
+	'2',
     'Construção de funções desfuncionais',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/303',
     '
@@ -356,10 +302,8 @@ INSERT INTO article (
     '
 ), (
     FROM_UNIXTIME( UNIX_TIMESTAMP('2024-01-01 00:00:00') + FLOOR(RAND() * (UNIX_TIMESTAMP('2024-10-31 23:59:59') - UNIX_TIMESTAMP('2024-01-01 00:00:00'))) ),
-	-- 'sta_id' de um staff existente --
-	'4',
+	'2',
     'Quando os "Python" não tem vez',
-    -- Deixe os mesmos valores para todos os outros artigos
     'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     'https://picsum.photos/304',
     '
@@ -374,38 +318,4 @@ INSERT INTO article (
 </ul>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis a mollitia doloribus repudiandae incidunt ullam debitis, minima iure quia, recusandae odio magnam velit quos ad nam eaque. Ut, dolorem eveniet?</p>    
     '
-);
-
--- Tabela "comment" --
-INSERT INTO comment (
-	-- Insira um "art_id" existente --
-	com_article,
-    com_author_name,
-    com_author_email,
-    com_comment
-) VALUES (
-	'10',
-    'Marlinelson',
-    'marli@nelson.com',
-    'É só mais um lorem ipsum.'
-), (
-	'10',
-    'Edicleuza',
-    'edi@cleuza.com',
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-), (
-	'2',
-    'Soiana',
-    'soraia@email.com',
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-),(
-	'1',
-    'Edicleuson',
-    'edic@email.com',
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-),(
-	'10',
-    'Normalinda',
-    'normalinda@email.com',
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 );

@@ -9,6 +9,8 @@
     {% if page.css %}
     <link rel="stylesheet" href="/static/css/{{ page.css }}">
     {% endif %}
+    <link rel="shortcut icon" href="/static/img/favicon.alpha.png" type="image/x-icon">
+    {# Título da página #}
     <title>{{ page.title }}</title>
 </head>
 
@@ -44,8 +46,10 @@
 
         <main>
 
+            {# Carrega o bloco `article` da página original #}
             <article>{% block article %}{% endblock%}</article>
-            
+
+            {# Carrega o bloco `aside` da página original #}
             <aside>{% block aside %}{%endblock %}</aside>
 
         </main>
