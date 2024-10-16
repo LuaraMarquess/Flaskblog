@@ -11,6 +11,79 @@
 
 {{ page.article.art_content | safe }}
 
+<div id="comments">
+
+    <h3>Comentários</h3>
+
+    {% if page.action == 'commented' %}
+    <div class="sended">
+        Seu comentário foi enviado com sucesso!
+    </div>
+    {% endif %}
+
+    <p>Preencha todos os campos abaixo para comentar.</p>
+    <p class="alert">Todos os campos são obrigatórios!</p>
+    <form action="/comment" method="post" id="commentForm">
+
+        <input type="hidden" name="id" value="{{ page.article.art_id }}">
+
+        <p>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" required minlength="3">
+        </p>
+
+        <p>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+
+        <p>
+            <textarea name="comment" required minlength="5"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Enviar</button>
+        </p>
+
+    </form>
+
+    {% if page.total_comments == 0 %}
+
+    <h3>Nenhum comentário</h3>
+    <p class="center">Seja o primeiro a comentar!</p>
+
+    {% else %}
+
+        {% if page.total_comments == 1 %}
+
+            <h3>{{ page.total_comments }} Comentário</h3>
+
+        {% else %}
+
+            <h3>{{ page.total_comments }} Comentários</h3>
+
+        {% endif %}
+
+    <div class="comment-grid">
+
+        {% for comment in page.comments %}
+
+        <div class="comment-item">
+            <div class="comment-header">
+                Por {{ comment.com_author_name }}
+                em {{ comment.com_datebr }}
+            </div>
+            <div class="comment-body">{{ comment.com_comment }}</div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
 {% endblock%}
 
 {% block aside %}
@@ -25,7 +98,7 @@
         <li>{{ page.article.sta_age }} anos</li>
         <li>{{ page.article.sta_typebr }}</li>
     </ul>
-    {{ page.article.sta_description }}
+    <small>{{ page.article.sta_description }}</small>
 
 </div>
 
@@ -35,7 +108,7 @@
 
 &nbsp;
 
-<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos de {{ page.article.sta_name }}</h3>
+<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos de {{ page.article.sta_firstname }}</h3>
 
 <div class="aside-grid">
 
