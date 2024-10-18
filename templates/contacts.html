@@ -24,12 +24,12 @@
 
     <p>
         <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" required minlength="3">
+        <input type="text" name="name" id="name" value="{{ page.user_data.name }}" required minlength="3">
     </p>
 
     <p>
         <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" value="{{ page.user_data.email }}" required>
     </p>
 
     <p>

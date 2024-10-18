@@ -28,8 +28,36 @@
 {# Peenche o bloco dentro de <aside></aside> de `layout.html` #}
 {% block aside %}
 
-<!-- Conteudo fake de teste → REMOVA-ME!!!! -->
-<h3>Título complementar</h3>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+<h3><i class="fa-solid fa-plus fa-fw"></i> Visitados</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.article_viewed %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+&nbsp;
+
+<h3><i class="fa-solid fa-plus fa-fw"></i> Comentados</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.articles_commented %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }} <sup>{{ article.total_comments }}</sup></div>
+    </div>
+
+    {% endfor %}
+
+</div>
 
 {%endblock %}
