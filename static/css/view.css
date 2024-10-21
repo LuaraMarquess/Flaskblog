@@ -11,7 +11,7 @@
     display: block;
     width: 100%;
     max-width: 500px;
-    margin: auto;
+    margin: auto auto 2rem auto;
 }
 
 #commentForm label {

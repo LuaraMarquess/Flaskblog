@@ -209,11 +209,42 @@ def contacts():  # Função executada quando '/contacts' é acessado
     return resp
 
 
+@app.route('/search')
+def search():
+    query = request.args.get('q')
+
+    # print('\n\n\n', query, '\n\n\n')
+
+    articles = search_articles(mysql, query)
+    article_viewed = most_viewed(mysql)
+
+    total = len(articles)
+
+    print('\n\n\n', articles, '\n\n\n')
+
+    toPage = {
+        'title': 'Procurar',
+        'css': 'home.css',
+        'articles': articles,
+        'query': query,
+        'total': total,
+        'article_viewed': article_viewed
+    }
+
+    return render_template('search.html', page=toPage)
+
+
 @app.errorhandler(404)  # Manipula o erro 404
 def page_not_found(e):
+
+    articles = get_all(mysql, 4)
+
+    # print('\n\n\n', articles, '\n\n\n')
+
     toPage = {
         'title': 'Erro 404',
-        'css': '404.css'
+        'css': '404.css',
+        'articles': articles
     }
     return render_template('404.html', page=toPage), 404
 
@@ -231,7 +262,8 @@ def comment():
     save_comment(mysql, form)
 
     # Renderiza a página
-    resp = make_response(redirect(url_for('view', artid=form['id'], ac='commented') + '#comments'))
+    resp = make_response(
+        redirect(url_for('view', artid=form['id'], ac='commented') + '#comments'))
 
     # Dados para o cookie
     cookie_data = {
@@ -246,20 +278,25 @@ def comment():
     return resp
 
 
+@app.route('/about')
+def about():
+    toPage = {
+        'title': 'Sobre',
+        'css': 'about.css'
+    }
+    return render_template('/about.html', page=toPage)
+
+
+@app.route('/policies')
+def policies():
+    toPage = {
+        'title': 'Políticas de Privacidade',
+        'css': 'about.css'
+    }
+    return render_template('/policies.html', page=toPage)
+
+
 # Verifica se o script está sendo executado diretamente
 if __name__ == '__main__':
     # Inicia o servidor Flask em modo debug
     app.run(debug=True)
-
-
-'''
-@app.route('/get_cookie')
-def get_cookie():
-    cookie_data = request.cookies.get('meu_cookie')
-    if cookie_data:
-        # Converte a string JSON de volta para um dicionário
-        data = json.loads(cookie_data)
-        return f"Nome: {data['name']}, Email: {data['email']}"
-    else:
-        return "Cookie não encontrado!"
-'''

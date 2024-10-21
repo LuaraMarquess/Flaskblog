@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- Referências: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog -->
+
+<html>
+  <head>
+    <style>
+      #dialogBox::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      #dialogBox {
+        border: none;
+        border-radius: 0.35rem;
+        margin: auto;
+        padding: .5rem;
+      }
+      #dialogBox h3 {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+
+    <button id="btnOpen">Abrir</button>
+
+    <dialog id="dialogBox">
+      <h3>Modal</h3>
+      <p>
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        Lorem ipsum Lorem ipsum Lorem ipsum
+      </p>
+      <button id="btnClose">Fechar</button>
+    </dialog>
+
+    <script>
+      const btnOpen = document.querySelector('#btnOpen');
+      const btnClose = document.querySelector('#btnClose');
+      const dialogBox = document.querySelector('#dialogBox');
+
+      btnOpen.addEventListener('click', (e) => {
+        dialogBox.showModal();
+      });
+
+      btnClose.addEventListener('click', (e) => {
+        dialogBox.close();
+      });
+
+      dialogBox.addEventListener('click', (e) => {
+        const rect = dialogBox.getBoundingClientRect();
+        if (
+          e.clientX < rect.left ||
+          e.clientX > rect.right ||
+          e.clientY < rect.top ||
+          e.clientY > rect.bottom
+        )
+          dialogBox.close();
+      });
+    </script>
+  </body>
+</html>

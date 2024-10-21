@@ -3,11 +3,29 @@
 {% block article %}
 
 <h2>Oooops!</h2>
-<p>O conteúdo que você está tentando acessar não existe!</p>
+<img class="error" src="/static/img/e404.png" alt="Erro 404">
+<p class="error">O conteúdo que você está tentando acessar não existe!</p>
 
 {% endblock%}
 
 {% block aside %}
 
+<h3>Links rápidos</h3>
+<ul class="aside">
+    <li><a href="/about">Sobre</a></li>
+    <li><a href="/contacts">Faça contato</a></li>
+    <li><a href="/policies">Sua privacidade</a></li>
+</ul>
+&nbsp;
+
+<h3>Artigos recentes</h3>
+<div class="aside-grid">
+    {% for article in page.articles %}
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }}</div>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

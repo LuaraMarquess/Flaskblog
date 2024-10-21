@@ -311,6 +311,7 @@ button {
     align-items: center;
     cursor: pointer;
     font-size: 90%;
+    margin-bottom: .5rem;
 }
 
 .aside-article img {

@@ -9,6 +9,8 @@
     {% if page.css %}
     <link rel="stylesheet" href="/static/css/{{ page.css }}">
     {% endif %}
+    <link rel="shortcut icon" href="/static/img/favicon.alpha.png" type="image/x-icon">
+    {# Título da página #}
     <title>{{ page.title }}</title>
 </head>
 
@@ -21,8 +23,8 @@
                 <a href="/"><i class="fa-solid fa-camera-retro fa-fw fa-4x"></i></a>
                 <h1>FlaskBlog</h1>
             </div>
-            <form action="search.html" method="get">
-                <input type="search" name="q" placeholder="Procurar">
+            <form action="/search" method="get">
+                <input type="search" name="q" placeholder="Procurar" value="{{ page.query }}">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
             </form>
         </header>
@@ -44,8 +46,10 @@
 
         <main>
 
+            {# Carrega o bloco `article` da página original #}
             <article>{% block article %}{% endblock%}</article>
-            
+
+            {# Carrega o bloco `aside` da página original #}
             <aside>{% block aside %}{%endblock %}</aside>
 
         </main>

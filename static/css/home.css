@@ -30,9 +30,6 @@
     font-size: 1rem;
 }
 
-.sup{
-    background-color: blue;
-}
 @media (min-width: 425px) and (max-width: 574px) {
     .article-box {
         flex: 1 1 calc(50% - 1rem);

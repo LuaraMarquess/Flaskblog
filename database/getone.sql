@@ -1,3 +1,5 @@
+-- Obtém 1 artigo pelo id com os dados do autor
+
 SELECT
 	-- Campos do artigo
 	art_id, art_title, art_content,

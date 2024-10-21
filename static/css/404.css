@@ -1,0 +1,9 @@
+img.error {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+}
+p.error {
+    text-align: center;
+}
