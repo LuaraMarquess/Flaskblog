@@ -4,6 +4,8 @@
 
 <h2>Sobre</h2>
 
+<img src="/static/img/about.jpg" alt="Sobre..." class="banner">
+
 <p>Este é um site sobre tecnologia com foco no Python e na biblioteca Flask.</p>
 
 <h3>Sobre o site</h3>
@@ -25,10 +27,36 @@
 <p>Este é um site colaborativo onde você pode participar comentando os artigos ou mesmo enviando novos artigos.</p>
 <p>Não vamos te pagar nada por isso, mas, quando ficarmos famosos, podemos renegociar.</p>
 
+<h3>Dúvidas?</h3>
+
+<p>Se precisar de mais informações, <a href="/contacts">entre em contato conosco</a>.</p>
+
 {% endblock%}
 
 {% block aside %}
 
+<h3>Links úteis</h3>
 
+<ul>
+    <li><a href="/policies">Sua privacidade</a></li>
+    <li><a href="/contacts">Faça contato</a></li>
+</ul>
+
+&nbsp;
+
+<h3>Artigos recentes</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.articles %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}

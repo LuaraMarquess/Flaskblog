@@ -346,3 +346,11 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+.banner {
+    display: block;
+    margin: auto;
+    border-radius: .3rem;
+    width: 100%;
+    max-width: 400px;
+}

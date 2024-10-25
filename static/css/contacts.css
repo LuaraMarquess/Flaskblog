@@ -65,3 +65,14 @@
     display: table;
     margin-left: 2rem;    
 }
+
+.aside-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.aside-social a {
+    font-size: 3.5rem;
+}

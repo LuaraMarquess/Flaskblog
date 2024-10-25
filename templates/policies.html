@@ -3,6 +3,9 @@
 {% block article %}
 
 <h2>Política de Privacidade</h2>
+
+<img src="/static/img/policies.jpg" alt="Política de Privacidade" class="banner">
+
 <p>Bem-vindo ao FlaskBlog. Estamos comprometidos em proteger sua privacidade e garantir que suas informações pessoais sejam protegidas.</p>
 
 <h3>Informações que Coletamos</h3>
@@ -25,7 +28,7 @@
 <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei ou para proteger nossos direitos.</p>
 
 <h3>Seus Direitos</h3>
-<p>Você tem o direito de acessar, corrigir ou excluir suas informações pessoais que coletamos. Para exercer esses direitos, entre em contato conosco através do email <a href="mailto:contato@flaskblog.com">contato@flaskblog.com</a>.</p>
+<p>Você tem o direito de acessar, corrigir ou excluir suas informações pessoais que coletamos. Para exercer esses direitos, entre em contato conosco através do <a href="/contacts">formulário de contatos</a>.</p>
 
 <h3>Alterações nesta Política</h3>
 <p>Podemos atualizar esta Política de Privacidade de tempos em tempos. Quando fizermos isso, publicaremos a nova versão em nosso site.</p>
@@ -37,6 +40,26 @@
 
 {% block aside %}
 
+<h3>Links rápidos</h3>
+<ul class="aside">
+    <li><a href="/about">Sobre</a></li>
+    <li><a href="/contacts">Faça contato</a></li>
+</ul>
+&nbsp;
 
+<h3><i class="fa-solid fa-plus fa-fw"></i> Artigos</h3>
+
+<div class="aside-grid">
+
+    {% for article in page.articles %}
+
+    <div class="aside-article" onclick="location.href = '/view/{{ article.art_id }}'">
+        <img src="{{ article.art_thumbnail }}" alt="{{ article.art_title }}">
+        <div>{{ article.art_title }}</div>
+    </div>
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}

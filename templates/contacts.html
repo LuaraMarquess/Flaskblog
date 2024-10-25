@@ -6,6 +6,8 @@
 
 <h2>Faça Contato</h2>
 
+<img src="/static/img/contacts.jpg" alt="Faça Contato" class="banner">
+
 {% if page.success %}
 
 <div class="success">
@@ -60,7 +62,17 @@
 {# Bloco dentro de <aside></aside> de `layout.html` #}
 {% block aside %}
 
-<h3>+ contatos</h3>
-<p>você pode nos encontrar nas redes sociais:</p>
+<h3><i class="fa-solid fa-plus fa-fw"></i> Contatos</h3>
+<p>Você também pode nos encontrar e contactar nas redes sociais:</p>
+
+<div class="aside-social">
+    <a href="https://facebook.com/flaskblog" title="Facebook" target="_blank" style="color: #1877f2;"><i class="fa-brands fa-square-facebook fa-fw"></i></a>
+    <a href="https://linkedin.com/in/flaskblog" title="LinkedIn" target="_blank" style="color: #0a66c2;"><i class="fa-brands fa-linkedin fa-fw"></i></a>
+    <a href="https://youtube.com/flaskblog" title="Youtube" target="_blank" style="color: #ff0000;"><i class="fa-brands fa-square-youtube fa-fw"></i></a>
+    <a href="https://github.com/flaskblog" title="GitHub" target="_blank" style="color: #6e5494;"><i class="fa-brands fa-square-github fa-fw"></i></a>
+    <a href="https://instagram.com/flaskblog" title="Instagram" target="_blank" style="color: #f77737;"><i class="fa-brands fa-square-instagram fa-fw"></i></a>
+    <a href="https://ws.com/+552198877665" title="WhatsApp" target="_blank" style="color: #075e54;"><i class="fa-brands fa-square-whatsapp fa-fw"></i></a>
+</div>
+
 
 {% endblock %}
